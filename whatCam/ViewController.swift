@@ -40,7 +40,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         captureSession.addOutput(dataOutput)
 
         // Determining objects in frame 
-        VNImageRequestHandler(cgImage:,options:[:]).perform(requests: request)
+        //VNImageRequestHandler(cgImage:,options:[:]).perform(requests: request)
 
 
 
@@ -63,6 +63,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 [VNClassificationObservation] else {return}
 
             guard let firstObservation = results.first else {return}
+
+            //printing results
+
+            print(firstObservation.identifier,firstObservation.confidence)
             
         }
         
