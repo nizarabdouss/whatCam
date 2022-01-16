@@ -7,8 +7,9 @@
 
 import UIKit
 import AVKit
+import Vision
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,41 @@ class ViewController: UIViewController {
 
         previewLayer.frame = view.frame
 
+        //output monitor 
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.setSampleBufferDelegate(self,queue: dispatchQueue(label:"videoQueue"))
+        captureSession.addOutput(dataOutput)
+
+        // Determining objects in frame 
+        VNImageRequestHandler(cgImage:,options:[:]).perform(requests: request)
+
+
 
     }
 
+    //output check
+    func captureOutput(_ output: AVCaptureOutput,didOutput
+    sampleBuffer: CMSampleBuffer,from connection: AVCaptureConnection){
+        print("Camera was able to capture a frame:", Date())
 
+        guard let pixelBuffer =
+            CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
+
+        guard let model = try? VNCoreMLModel(for: SqueezeNet().model) else{return}
+        let request = VNCoreMLRequest(model: model ){
+            (finishedReq,err) in 
+            //check errors
+            print(finishedReq.results)
+            guard let results = finishedReq.results as?
+                [VNClassificationObservation] else {return}
+
+            guard let firstObservation = results.first else {return}
+            
+        }
+        
+
+        
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer,options:[:]).perform([request])
+    }
 }
 
