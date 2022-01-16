@@ -17,6 +17,7 @@
 		B7E03C392791E6090059E5C6 /* whatCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E03C382791E6090059E5C6 /* whatCamTests.swift */; };
 		B7E03C432791E60A0059E5C6 /* whatCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E03C422791E60A0059E5C6 /* whatCamUITests.swift */; };
 		B7E03C452791E60A0059E5C6 /* whatCamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E03C442791E60A0059E5C6 /* whatCamUITestsLaunchTests.swift */; };
+		B7E03C522794BA780059E5C6 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B7E03C512794BA780059E5C6 /* SqueezeNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B7E03C3E2791E6090059E5C6 /* whatCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whatCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E03C422791E60A0059E5C6 /* whatCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whatCamUITests.swift; sourceTree = "<group>"; };
 		B7E03C442791E60A0059E5C6 /* whatCamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whatCamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B7E03C512794BA780059E5C6 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SqueezeNet.mlmodel; path = ../../../Downloads/SqueezeNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		B7E03C1D2791E6070059E5C6 /* whatCam */ = {
 			isa = PBXGroup;
 			children = (
+				B7E03C512794BA780059E5C6 /* SqueezeNet.mlmodel */,
 				B7E03C1E2791E6070059E5C6 /* AppDelegate.swift */,
 				B7E03C202791E6070059E5C6 /* SceneDelegate.swift */,
 				B7E03C222791E6070059E5C6 /* ViewController.swift */,
@@ -263,6 +266,7 @@
 			files = (
 				B7E03C232791E6070059E5C6 /* ViewController.swift in Sources */,
 				B7E03C292791E6070059E5C6 /* whatCam.xcdatamodeld in Sources */,
+				B7E03C522794BA780059E5C6 /* SqueezeNet.mlmodel in Sources */,
 				B7E03C1F2791E6070059E5C6 /* AppDelegate.swift in Sources */,
 				B7E03C212791E6070059E5C6 /* SceneDelegate.swift in Sources */,
 			);
@@ -446,6 +450,7 @@
 				DEVELOPMENT_TEAM = 9TBMU6C748;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = whatCam/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access needed to operate whatCam";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -455,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nizar.whatCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -474,6 +479,7 @@
 				DEVELOPMENT_TEAM = 9TBMU6C748;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = whatCam/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access needed to operate whatCam";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -483,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nizar.whatCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

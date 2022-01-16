@@ -36,7 +36,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
         //output monitor 
         let dataOutput = AVCaptureVideoDataOutput()
-        dataOutput.setSampleBufferDelegate(self,queue: dispatchQueue(label:"videoQueue"))
+        dataOutput.setSampleBufferDelegate(self,queue: DispatchQueue(label:"videoQueue"))
         captureSession.addOutput(dataOutput)
 
         // Determining objects in frame 
