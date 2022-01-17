@@ -11,10 +11,16 @@ import Vision
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet weak var objectLabel: UILabel!
+    
+    
+    @IBOutlet weak var confidenceLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+    
 
         // Create Camera Device
         let captureSession = AVCaptureSession()
@@ -54,18 +60,20 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         guard let pixelBuffer =
             CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
 
-        guard let model = try? VNCoreMLModel(for: SqueezeNet().model) else{return}
-        let request = VNCoreMLRequest(model: model ){
-            (finishedReq,err) in 
+        guard let model = try? VNCoreMLModel(for: Resnet50().model) else{return}
+        let request = VNCoreMLRequest(model: model )
+        {   (finishedReq,err) in
             //check errors
             print(finishedReq.results)
-            guard let results = finishedReq.results as?
-                [VNClassificationObservation] else {return}
+            guard let results = finishedReq.results as? [VNClassificationObservation] else {return}
 
             guard let firstObservation = results.first else {return}
 
             //printing results
-
+            DispatchQueue.main.async {
+                self.objectLabel.text = firstObservation.identifier
+                self.confidenceLabel.text = String(firstObservation.confidence)
+            }
             print(firstObservation.identifier,firstObservation.confidence)
             
         }
