@@ -70,10 +70,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             guard let firstObservation = results.first else {return}
 
             //printing results
-            DispatchQueue.main.async {
-                self.objectLabel.text = firstObservation.identifier
-                self.confidenceLabel.text = String(firstObservation.confidence)
+            if(firstObservation.confidence > 0.7){
+                DispatchQueue.main.async {
+                    self.objectLabel.text = firstObservation.identifier
+                    self.confidenceLabel.text = String(firstObservation.confidence)
+                }
             }
+            
             print(firstObservation.identifier,firstObservation.confidence)
             
         }
