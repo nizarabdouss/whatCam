@@ -26,7 +26,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
         // Create Camera Device
         let captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .photo
+        //captureSession.sessionPreset = .photo
         guard let captureDevice = AVCaptureDevice.default(for: .video) else{ return }
         guard let input =  try? AVCaptureDeviceInput(device: captureDevice) else {return}
         
@@ -39,6 +39,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
 
         view.layer.addSublayer(previewLayer)
+        self.view.layer.insertSublayer(previewLayer, at: 0)
+        previewLayer.videoGravity = .resizeAspectFill
 
         previewLayer.frame = view.frame
 
