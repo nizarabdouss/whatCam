@@ -14,7 +14,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var objectLabel: UILabel!
     
     
+    
     @IBOutlet weak var confidenceLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -70,10 +72,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             guard let firstObservation = results.first else {return}
 
             //printing results
-            if(firstObservation.confidence > 0.7){
+            if(firstObservation.confidence > 0.5){
                 DispatchQueue.main.async {
                     self.objectLabel.text = firstObservation.identifier
-                    self.confidenceLabel.text = String(firstObservation.confidence)
+                    self.confidenceLabel.text = String(firstObservation.confidence*100)
                 }
             }
             
