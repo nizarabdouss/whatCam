@@ -19,10 +19,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     @IBOutlet weak var confidenceLabel: UILabel!
     
-    
-    
-    
-    
+    var isOn = 0
     
     
     override func viewDidLoad() {
@@ -106,6 +103,50 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         //let synthesizer = AVSpeechSynthesizer()
         //synthesizer.speak(uTerence)
     //}
+    
+    
+    
+    
+    @IBAction func Torch(_ sender: UIButton) {
+        if isOn == 0{
+            toggleOn()
+            isOn = 1
+        }
+        else{
+            toggleOff()
+            isOn = 0
+        }
+    }
+    
+    
+    func toggleOn() {
+        if let device = AVCaptureDevice.default(for: .video),device.hasTorch{
+            do{
+                try device.lockForConfiguration()
+                device.torchMode = .on
+                device.unlockForConfiguration()
+                
+            }
+            catch{
+                print("Error")
+            }
+        }
+    }
+    
+    func toggleOff() {
+        if let device = AVCaptureDevice.default(for: .video),device.hasTorch{
+            do{
+                try device.lockForConfiguration()
+                device.torchMode = .off
+                device.unlockForConfiguration()
+                
+            }
+            catch{
+                print("Error")
+            }
+        }
+    }
+    
 }
 
 extension String{
