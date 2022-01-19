@@ -8,6 +8,8 @@
 import UIKit
 import AVKit
 import Vision
+import AVFoundation
+
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
@@ -16,6 +18,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     
     @IBOutlet weak var confidenceLabel: UILabel!
+    
+    
+    
+    
     
     
     
@@ -76,8 +82,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             //printing results
             if(firstObservation.confidence > 0.5){
                 DispatchQueue.main.async {
-                    self.objectLabel.text = firstObservation.identifier
+                    self.objectLabel.text = firstObservation.identifier.localized()
                     self.confidenceLabel.text = String(firstObservation.confidence*100)
+                    
+                    
                 }
             }
             
@@ -88,6 +96,21 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer,options:[:]).perform([request])
+    }
+    
+    //func pressed(sender: UIButton!) {
+        // do some stuff
+        //print("Button pressed")
+        //let uTerence  = AVSpeechUtterance(string: objectLabel.text!)
+        //uTerence.voice = AVSpeechSynthesisVoice(language: "en-gb")
+        //let synthesizer = AVSpeechSynthesizer()
+        //synthesizer.speak(uTerence)
+    //}
+}
+
+extension String{
+    func localized() -> String{
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }
 }
 
