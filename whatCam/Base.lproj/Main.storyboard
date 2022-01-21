@@ -28,9 +28,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EA-rx-dMZ">
-                                <rect key="frame" x="356" y="746" width="38" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EA-rx-dMZ">
+                                <rect key="frame" x="356" y="756.66666666666663" width="38" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="flashlight.on.fill" catalog="system">
                                     <color key="baseForegroundColor" systemColor="systemGray2Color"/>
@@ -39,14 +38,28 @@
                                     <action selector="Torch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M4o-c5-SOF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJo-Ud-LdR">
+                                <rect key="frame" x="30" y="756.66666666666663" width="49" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="volume.2" catalog="system"/>
+                                <connections>
+                                    <action selector="Speak:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p7B-T4-7Lf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9yl-7X-SeI" secondAttribute="trailing" constant="20" id="7Ws-l6-8Er"/>
+                            <constraint firstItem="TJo-Ud-LdR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.65" id="9PZ-Za-M1S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xgX-uB-KrA" secondAttribute="trailing" constant="20" id="DVi-mG-M2P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8EA-rx-dMZ" secondAttribute="trailing" constant="34" id="FAH-S4-HjI"/>
+                            <constraint firstItem="TJo-Ud-LdR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="HCs-U5-NBf"/>
+                            <constraint firstItem="8EA-rx-dMZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.65" id="RfC-Bw-XMd"/>
                             <constraint firstItem="xgX-uB-KrA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aTj-Bw-Clg"/>
                             <constraint firstItem="9yl-7X-SeI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.7" id="c4F-lc-90m"/>
+                            <constraint firstItem="8EA-rx-dMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="356" id="kGD-Sp-h0b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TJo-Ud-LdR" secondAttribute="trailing" constant="349" id="lg5-Zu-bTU"/>
                             <constraint firstItem="xgX-uB-KrA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.8" id="nhK-hM-KgH"/>
                             <constraint firstItem="9yl-7X-SeI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pbT-BH-b4L"/>
                         </constraints>
@@ -63,6 +76,7 @@
     </scenes>
     <resources>
         <image name="flashlight.on.fill" catalog="system" width="76" height="128"/>
+        <image name="volume.2" catalog="system" width="128" height="90"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

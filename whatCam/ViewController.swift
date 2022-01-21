@@ -95,16 +95,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer,options:[:]).perform([request])
     }
     
-    //func pressed(sender: UIButton!) {
-        // do some stuff
-        //print("Button pressed")
-        //let uTerence  = AVSpeechUtterance(string: objectLabel.text!)
-        //uTerence.voice = AVSpeechSynthesisVoice(language: "en-gb")
-        //let synthesizer = AVSpeechSynthesizer()
-        //synthesizer.speak(uTerence)
-    //}
     
     
+    @IBAction func Speak(_ sender: Any) {
+        print("Button pressed")
+        let uTerence  = AVSpeechUtterance(string: objectLabel.text!)
+        uTerence.voice = AVSpeechSynthesisVoice(language: "en-us")
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(uTerence)
+    }
     
     
     @IBAction func Torch(_ sender: UIButton) {
